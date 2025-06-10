@@ -27,6 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const filteredRelated = relatedVideos.videos
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .filter((video: any) => {
         const videoId = video.basic_info?.id || video.id;
         return videoId !== shortId;

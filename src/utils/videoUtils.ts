@@ -51,20 +51,23 @@ export const formatPublishDate = (publishDate: string | Date): string => {
     } else {
       return `${diffInYears} yıl önce`;
     }
-  } catch (error) {
+  } catch {
     return publishDate.toString();
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTextFromObject = (obj: any): string => {
   if (typeof obj === 'string') return obj;
   if (obj?.text) return obj.text;
   if (obj?.runs && Array.isArray(obj.runs)) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return obj.runs.map((run: any) => run.text || '').join('');
   }
   return '';
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getViewCount = (video: any): number => {
   if (!video) return 0;
   
@@ -95,6 +98,7 @@ export const getViewCount = (video: any): number => {
   return 0;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getThumbnailUrl = (video: any): string => {
   if (video.thumbnails && Array.isArray(video.thumbnails) && video.thumbnails.length > 0) {
     return video.thumbnails[0].url;
@@ -105,6 +109,7 @@ export const getThumbnailUrl = (video: any): string => {
   return '';
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getDuration = (video: any): string => {
   if (video.length_text?.text) {
     return video.length_text.text;
@@ -120,6 +125,7 @@ export const getDuration = (video: any): string => {
   return '';
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getChannelAvatar = (video: any): string => {
   if (video.author?.thumbnails && Array.isArray(video.author.thumbnails) && video.author.thumbnails.length > 0) {
     return video.author.thumbnails[0].url;
@@ -130,6 +136,7 @@ export const getChannelAvatar = (video: any): string => {
   return '';
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const parseVideoData = (video: any) => {
   return {
     id: video.video_id || video.id,

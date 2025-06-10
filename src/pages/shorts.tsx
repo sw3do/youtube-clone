@@ -9,6 +9,7 @@ import Layout from "../components/Layout";
 import { formatViews, parseVideoData } from "../utils/videoUtils";
 
 export default function ShortsPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [videos, setVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,6 +75,7 @@ function ShortsSkeleton() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ShortsCard({ video }: { video: any }) {
   const router = useRouter();
 

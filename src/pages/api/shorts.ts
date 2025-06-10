@@ -16,8 +16,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
     
     const shortsVideos = searchResults.videos
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .filter((video: any) => {
         if (video.thumbnail_overlays && Array.isArray(video.thumbnail_overlays)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           return video.thumbnail_overlays.some((overlay: any) => 
             overlay.type === "ThumbnailOverlayTimeStatus" && 
             overlay.text === "SHORTS" && 

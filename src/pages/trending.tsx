@@ -9,6 +9,7 @@ import { formatViews, parseVideoData } from "../utils/videoUtils";
 import { useRouter } from "next/router";
 
 export default function TrendingPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [videos, setVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -82,6 +83,7 @@ function VideoSkeleton() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function VideoCard({ video }: { video: any }) {
   const router = useRouter();
 

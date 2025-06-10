@@ -3,30 +3,31 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { MdVerified, MdThumbUp, MdThumbDown, MdShare, MdMoreVert, MdPlaylistAdd, MdDownload } from "react-icons/md";
-import { FaPlay, FaPause } from "react-icons/fa";
+import { MdVerified, MdShare, MdMoreVert, MdPlaylistAdd } from "react-icons/md";
+import { FaPlay } from "react-icons/fa";
 import { BiLike, BiDislike } from "react-icons/bi";
-import { IoMdNotifications, IoMdNotificationsOff } from "react-icons/io";
+import { IoMdNotifications } from "react-icons/io";
 import axios from "axios";
 import Layout from "../../components/Layout";
 import { formatViews, formatDuration, formatPublishDate } from "../../utils/videoUtils";
-import { useTheme } from "../../contexts/ThemeContext";
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
 export default function VideoDetailPage() {
   const router = useRouter();
   const { videoId } = router.query;
-  const { theme } = useTheme();
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [video, setVideo] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [relatedVideos, setRelatedVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
+
+  const isPlaying = false;
 
   useEffect(() => {
     if (videoId && typeof videoId === 'string') {
@@ -45,10 +46,6 @@ export default function VideoDetailPage() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
   };
 
   const toggleSubscribe = () => {

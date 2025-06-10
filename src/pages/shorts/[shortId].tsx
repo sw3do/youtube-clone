@@ -16,7 +16,9 @@ export default function ShortDetailPage() {
   const router = useRouter();
   const { shortId } = router.query;
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [video, setVideo] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [relatedVideos, setRelatedVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);

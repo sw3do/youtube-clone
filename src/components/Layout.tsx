@@ -7,8 +7,6 @@ import {
   FiMenu, 
   FiHome, 
   FiTrendingUp, 
-  FiMusic, 
-  FiFilm,
   FiSettings,
   FiPlay,
   FiBell,
@@ -17,9 +15,6 @@ import {
   FiMic,
   FiX
 } from "react-icons/fi";
-import { IoGameController } from "react-icons/io5";
-import { MdVideoLibrary, MdHistory, MdWatchLater, MdThumbUp } from "react-icons/md";
-import { RiLiveLine } from "react-icons/ri";
 import { SiYoutubeshorts } from "react-icons/si";
 import axios from "axios";
 

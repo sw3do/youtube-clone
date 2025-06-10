@@ -9,6 +9,7 @@ import Layout from "../components/Layout";
 import { formatViews, parseVideoData } from "../utils/videoUtils";
 
 export default function SearchPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [videos, setVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
@@ -44,7 +45,7 @@ export default function SearchPage() {
           <div className="flex items-center space-x-3 mb-8">
             <FiSearch size={24} className="text-gray-600 dark:text-gray-400" />
             <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              "{q}" için arama sonuçları
+              &quot;{q}&quot; için arama sonuçları
             </h1>
           </div>
         )}
@@ -107,7 +108,7 @@ function EmptyState({ query, onSearch }: { query: string; onSearch: (query: stri
       </div>
       
       <h2 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
-        "{query}" için sonuç bulunamadı
+        &quot;{query}&quot; için sonuç bulunamadı
       </h2>
       
       <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
@@ -129,6 +130,7 @@ function EmptyState({ query, onSearch }: { query: string; onSearch: (query: stri
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function VideoCard({ video }: { video: any }) {
   const router = useRouter();
 
